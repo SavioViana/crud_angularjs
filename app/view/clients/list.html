@@ -1,0 +1,45 @@
+<div  ng-controller="clientListController">
+    <div class="row">
+        <div class="col-12 pb-2">
+                <h2 class="text-center text-uppercase">Lista de Clientes</h2>
+                <a href="#!/clients/create" class="btn btn-primary float-right">Novo</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="searchClient" placeholder="Buscar Cliente" >
+                  </div>
+                <table class="table table-striped">
+                    <thead class="thead-dark bg-primary">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Idade</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        
+                    <tr ng-repeat="(key, client) in clients | filter:searchClient">
+                        <th scope="row">{{ key + 1 }}</th>
+                        <td>{{ client.name }}</td>
+                        <td>{{ client.age }}</td>
+                        <td>{{ client.gender == 1 ? 'Masculino' : 'feminino' }}</td>
+                        <td class="text-right">
+                            <a href="#!/clients/{{ client.id }}" class="btn btn-success btn-sm">Mostrar</a>
+                            <a href="#!/clients/edit/{{ client.id }}" class="btn btn-primary btn-sm">Editar</a>
+                            <button ng-click="deleteClient( client.id)" class="btn btn-danger btn-sm">Remover</button>
+                        </td>
+                    </tr>
+                    <tr ng-if="clients.length <= 0">
+                        <td colspan="5" class="font-weight-bold text-center">Nenhum cliente cadastrado</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

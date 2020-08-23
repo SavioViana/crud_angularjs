@@ -1,0 +1,1 @@
+Rodar a aplicação dentro de um servidor http, para que o ngRouter funcione corretamente;

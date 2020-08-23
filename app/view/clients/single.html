@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-12 pb-2">
+            <h2 class="text-center text-uppercase">Detalhes do cliente</h2>
+            <a href="#!/clients/create" class="btn btn-primary float-right">Novo</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card card-body">
+
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Nome:</td>
+                    <td>{{ client.name }}</td>
+                </tr>
+                <tr >
+                    <td>Idade:</td>
+                    <td>{{ client.age }}</td>
+                </tr>
+                <tr>
+                    <td>Genero:</td>
+                    <td>{{ (client.gender == 1) ? 'Masculino' : 'feminino' }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <a href="#!/clients" class="float-left">voltar para listagem</a>
+                <a href="#!/clients/edit/{{ client.id }}"  class="btn btn-primary float-right">Editar</a>
+            </div>
+        </div>
+    </div>
+</div>
